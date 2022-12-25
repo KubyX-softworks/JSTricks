@@ -3,23 +3,36 @@
  * @param {boolean} fadeIn 
  * @param {int} timer 
  * @param {string} color
- * @author **©️ KubyX Softworks 2022**
+ * @param {boolean} fade
+ * @param {string} textFadeColor
+ * @stuncs69
+ * @copyright **©️ KubyX Softworks 2022**
  */
-function init(fadeIn, timer, color) {
+function initBtn(fadeIn, timer, color, fade, textFadeColor="white") {
     // get all button elements with the class "btnanim"
     const btns = document.getElementsByClassName("btnanim");
     // for each button
     for (let i = 0; i < btns.length; i++) {
+        // load initial CSS
+        btns[i].style.borderRadius = "0.45rem";
+        btns[i].style.borderColor = color;
+        btns[i].style.cursor = "pointer";
+        btns[i].style.borderStyle = "solid";
         // create event listener for mouse enter
         btns[i].addEventListener("mouseenter", function () {
             // if fade in is enabled
             if (fadeIn) {
                 // fade in
                 btns[i].style.backgroundColor = color;
+                btns[i].style.color = textFadeColor;
                 btns[i].style.transition = timer + "ms";
+                if (fade) {
+                    btns[i].style.boxShadow = `0px 0px 1rem 0px ${color}`;
+                }
             } else {
                 // if fade in is disabled, just change the background color
                 btns[i].style.backgroundColor = color;
+                btns[i].style.color = textFadeColor;
             }
         });
         // create event listener for mouse leave
@@ -28,16 +41,17 @@ function init(fadeIn, timer, color) {
             if (fadeIn) {
                 // fade out
                 btns[i].style.backgroundColor = "transparent";
+                btns[i].style.color = "inherit";
                 btns[i].style.transition = timer + "ms";
+                if (fade) {
+                    btns[i].style.boxShadow = "none";
+                }
             } else {
                 // if fade in is disabled, just change the background color
                 btns[i].style.backgroundColor = "transparent";
+                btns[i].style.color = "inherit";
             }
         }
         );
-        // add shadow if enabled
-        if (btns[i].getAttribute("shadow") == "true") {
-            btns[i].style.boxShadow = "0px 0px 0.5rem black";
-        }
     }
 }
