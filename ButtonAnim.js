@@ -8,7 +8,7 @@
  * @stuncs69
  * @copyright **©️ KubyX Softworks 2022**
  */
-function initBtn(fadeIn, timer, color, fade, textFadeColor="white") {
+function init(fadeIn, timer, color, fade, textFadeColor="white") {
     // get all button elements with the class "btnanim"
     const btns = document.getElementsByClassName("btnanim");
     // for each button
