@@ -5,12 +5,13 @@
  * @param {string} color
  * @param {boolean} fade
  * @param {string} textFadeColor
+ * @param {string} htmlClass
  * @stuncs69
  * @copyright **©️ KubyX Softworks 2022**
  */
-function init(fadeIn, timer, color, fade, textFadeColor="white") {
-    // get all button elements with the class "btnanim"
-    const btns = document.getElementsByClassName("btnanim");
+var initBtnAnim = (fadeIn, timer, color, fade, textFadeColor="white", htmlClass="btnanim") => {
+    // get all button elements with the class specified
+    const btns = document.getElementsByClassName(htmlClass);
     // for each button
     for (let i = 0; i < btns.length; i++) {
         // load initial CSS
